@@ -79,3 +79,17 @@ CREATE TABLE PerfilPessoal (
     Respostas TEXT,
     Usuario VARCHAR(50)
 );
+CREATE TABLE Orientacoes (
+    orientacao_id INT PRIMARY KEY,
+    aluno_id INT,
+    professor_id INT,
+    psicologo_id INT,
+    data_orientacao DATE,
+    resultado_teste_id INT,
+    observacoes TEXT,
+    FOREIGN KEY (aluno_id) REFERENCES Alunos(aluno_id),
+    FOREIGN KEY (professor_id) REFERENCES Professores(professor_id),
+    FOREIGN KEY (psicologo_id) REFERENCES Psicologos(psicologo_id),
+    FOREIGN KEY (resultado_teste_id) REFERENCES ResultadosTestes(resultado_teste_id)
+
+    );
